@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<title>CSS 的 ID 和 Class 有什么区别？如何正确使用它们？</title>
+	<meta name="keywords" content="知乎, css, id, 区别">
+	<meta name="description" content="知乎回答：CSS 的 ID 和 Class 有什么区别？如何正确使用它们？">
+	<meta name="author" content="Michael Chan">
+	<meta name="revised" content="Oct-13-2017 GTM+8 12:46">
+	<meta http-equiv="content-type" content="text/html" charset="utf-8">
+	<link rel="shortcut icon" href="assets/images/知乎logo.png">
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+	<nav class="nav-bar">
+		<div class="nav-bar__container">
+			<img class="nav-bar__logo" src="assets/images/知乎文字logo.png">
+			<div class="nav-bar__link-container">
+				<a class="nav-bar__link" href="https://www.zhihu.com/">首页</a>
+				<a class="nav-bar__link" href="https://www.zhihu.com/explore">发现</a>
+				<a class="nav-bar__link" href="https://www.zhihu.com/topic">话题</a>
+			</div>
+			<div class="nav-bar__search-box-container">
+				<input class="nav-bar__search-box--normal" type="text" name="search-box" placeholder="搜索你感兴趣的内容...">
+				<button class="nav-bar__search-box-btd--normal" onclick="search()"></button>
+			</div>
+			<button class="nav-bar__login-btd">登录</button>
+			<button class="nav-bar__register-btd">加入知乎</button>
+		</div>
+	</nav>
+
+	<header class="title-bar">
+		<div class="title-bar-contianer">
+			<button class="title-bar-_classification1" onclick="javascrtpt:window.location.href='https://www.zhihu.com/topic/19550901'">前端开发</button>
+			<button class="title-bar-_classification2" onclick="javascrtpt:window.location.href='https://www.zhihu.com/topic/19551326'">CSS</button>
+			<h1 class="title-bar-_main-title">CSS 的 ID 和 Class 有什么区别？如何正确使用它们？</h1>
+			<div class="title-bar__info-container">
+				<p>6条评论</p>
+				<p>分享</p>
+				<p>邀请回答</p>
+			</div>
+			<button class="title-bar-_follow-btd">关注问题</button>
+			<button class="title-bar-_post-btd">写回答</button>
+		</div>
+	</header>
+
+	
+	<div class="grid-container">
+		<div class="main-column">
+			<header class="answer-info">
+				<h4 class="answer-info__number">22个回答</h4>
+				<p class="answer-info__sorting-method">默认排序</p>
+			</header>
+			<article class="single-post">
+				<header class="single-post__author-profile">
+					<img src="assets/images/profile.jpg">
+					<h4>seaeast</h4>
+					<h5>~</h5>
+					<p>18人赞同了该回答</p>
+				</header>
+				<p class="single-post__body">说下我自己负责的组做项目的心得吧。css只用class来写并有专门的class通用和私有模块命名，id具有唯一性且优先级太高只作为js操作dom的挂钩全部不添加样式，如果使用jq或zepto的话，操作的class类名一般也不加样式，这部分的class命名和id一样由js来制定。这样做比较适合大型，多人维护并且需要长期迭代的项目，css的class类名和js操作的id、class类完全分离，这样产品的ui或者产品交互逻辑变动二者互不影响，易维护。</p>
+				<footer class="single-post__footer">
+					<button class="single-post__footer__like-btd" onclick="likeOnClick(this)">▲1022</button>
+					<button class="single-post__footer__dislike-btd">▼</button>
+					<div class="single-post__footer__operation">
+						<p>添加评论</p>
+						<p>分享</p>
+						<p>收藏</p>
+						<p>感谢</p>
+					</div>
+				</footer>
+			</article>
+			<article class="single-post">
+				<header class="single-post__author-profile">
+					<img src="assets/images/profile2.jpg">
+					<h4>Mapk Volkov</h4>
+					<h5>SASS、h5、hybrid</h5>
+					<p>6人赞同了该回答</p>
+				</header>
+				<p class="single-post__body">我可能是来歪楼的。看到几位前辈都在从技术面的角度来解释，但还有一种情况是我在校招程序员的面试中频繁遇到的，跟大家分享一下。哦，补充一下背景：我所在的公司在３线城市，中小企业很多，技术较为落后。<br><br>我倒是觉得会问这个问题的人更多的情况是在刚要离开学校，去到一些三流建站公司看到既有的代码出于浏览器兼容性的考虑而大面积使用ID而不是class时所产生的疑问。最近一年来面试的应聘程序员的童鞋里面，凡是去过中企动力之类的企业之后都会有如上的困惑。简言：IE6害死人呐解释：IE6及以下的浏览器目前全球范围内用户最集中的地区在大陆，在IE6中如果选择某个元素去应用CSS或javascript特效时，用class选则的在IE6中不会被正常选择，但用ID则没有这问题。<br><br>如RapGIS所言，为了此类兼容性而让ＩＤ命名系统变得非常复杂，而且会增加系统维护的难度。但由于国内建站的公司既有的代码库已经用了很多年了，推倒重来的成本太高（主要是面向想初次上线的中小企业提供建站服务的某几个公司），懒得高薪牛人只用应届生，又不愿意投钱培训，只好让廉价码农拿学校书本上的过气教材继续在自家的系统上修修补补。凡是遇到被这类公司蹂躏过的童鞋，我都会用很坚定的语气告诉ＴＡ：“要顺应技术的革新，不要浪费生命去做向ＩＥ６兼容的傻事”，能救一个算一个，也算对得起孩子们大老远跑来面试的诚意了。</p>
+				<footer class="single-post__footer">
+					<button class="single-post__footer__like-btd" onclick="likeOnClick(this)">▲127</button>
+					<button class="single-post__footer__dislike-btd">▼</button>
+					<div class="single-post__footer__operation">
+						<p>添加评论</p>
+						<p>分享</p>
+						<p>收藏</p>
+						<p>感谢</p>
+					</div>
+				</footer>
+			</article>
+			<article class="single-post">
+				<header class="single-post__author-profile">
+					<img src="assets/images/profile2.jpg">
+					<h4>傻逼胡婷婷</h4>
+					<h5>奶🐷是我的</h5>
+					<p>2人赞同了该回答</p>
+				</header>
+				<p class="single-post__body">联合国教育、科学与文化组织（法语：Organisation des Nations unies pour l'éducation, la science et la culture，缩写：ONUÉSC ; 英语：United Nations Educational, Scientific and Cultural Organization，缩写：UNESCO），简称联合国教科文组织，是一个联合国专门机构[1]，成立于1945年11月16日，总部设在法国巴黎。<br><br>
+				组织之宗旨在于通过教育、科学及文化来促进各国之间合作，对和平与安全作出贡献，以增进对正义、法治及联合国宪章所确认之世界人民不分种族、性别、语言或宗教均享人权与基本自由之普遍尊重[2]。联合国教育、科学与文化组织是持续国际联盟的国际智力合作委员会。</p>
+				<footer class="single-post__footer">
+					<button class="single-post__footer__like-btd" onclick="likeOnClick(this)">▲</button>
+					<button class="single-post__footer__dislike-btd">▼</button>
+					<div class="single-post__footer__operation">
+						<p>添加评论</p>
+						<p>分享</p>
+						<p>收藏</p>
+						<p>感谢</p>
+					</div>
+				</footer>
+			</article>
+			<article class="single-post">
+				<header class="single-post__author-profile">
+					<img src="assets/images/profile2.jpg">
+					<h4>傻逼陈嘉健</h4>
+					<h5>超爱奶猪猪</h5>
+					<p>1人赞同了该回答</p>
+				</header>
+				<p class="single-post__body">   健康，是幸福的起点，也是成长的前提；是立身之本，也是立国之基；是全面建成小康社会的重要内涵，也是人类社会发展福祉的永续追求。<br><br>
+　　				党的十八大以来，以习近平同志为核心的党中央统揽全局、系统谋划，从党和国家事业全局出发，作出推							进健康中国建设的重大决策部署，突出重点、立柱架梁，从民生关切着手，实施一系列利当前、惠长远的重大举措，推动医药卫 生体制改革由易到难渐次突破，为人民群众的共同追求、为民族复兴的光荣梦想不断夯实健康之基。</p>
+				<footer class="single-post__footer">
+					<button class="single-post__footer__like-btd" onclick="likeOnClick(this)">▲18</button>
+					<button class="single-post__footer__dislike-btd">▼</button>
+					<div class="single-post__footer__operation">
+						<p>添加评论</p>
+						<p>分享</p>
+						<p>收藏</p>
+						<p>感谢</p>
+					</div>
+				</footer>
+			</article>
+			<article class="bottom single-post">
+				<header class="single-post__author-profile">
+					<img src="assets/images/profile2.jpg">
+					<h4>傻逼胡婷婷</h4>
+					<h5>奶🐷是我的</h5>
+					<p>2人赞同了该回答</p>
+				</header>
+				<p class="single-post__body">联合国教育、科学与文化组织（法语：Organisation des Nations unies pour l'éducation, la science et la culture，缩写：ONUÉSC ; 英语：United Nations Educational, Scientific and Cultural Organization，缩写：UNESCO），简称联合国教科文组织，是一个联合国专门机构[1]，成立于1945年11月16日，总部设在法国巴黎。<br><br>
+				组织之宗旨在于通过教育、科学及文化来促进各国之间合作，对和平与安全作出贡献，以增进对正义、法治及联合国宪章所确认之世界人民不分种族、性别、语言或宗教均享人权与基本自由之普遍尊重[2]。联合国教育、科学与文化组织是持续国际联盟的国际智力合作委员会。</p>
+				<footer class="single-post__footer">
+					<button class="single-post__footer__like-btd" onclick="likeOnClick(this)">▲</button>
+					<button class="single-post__footer__dislike-btd">▼</button>
+					<div class="single-post__footer__operation">
+						<p>添加评论</p>
+						<p>分享</p>
+						<p>收藏</p>
+						<p>感谢</p>
+					</div>
+				</footer>
+			</article>
+		</div>
+
+		<aside href="" class="code">
+			<img src="assets/images/二维码.png">
+			<h4>下载知乎客户端</h4>
+			<h5>与世界分享知识、经验和见解</h5>
+		</aside>
+
+		<aside class="related-question">
+			<header>
+				<h4>相关问题</h4>
+			</header>
+			<div class="related-question-container">
+				<a href="https://www.zhihu.com/question/21935157">如何看待 CSS 中 BEM 的命名方式？</a><br><br>
+				<a href="https://www.zhihu.com/question/21935157">如何看到CSS中的BEM模式？</a><br><br>
+				<a href="https://www.zhihu.com/question/21935157">如何看到CSS中的BEM模式？</a><br><br>
+				<a href="https://www.zhihu.com/question/28207685">Web 前后端分离的意义大吗？</a><br><br>
+				<a href="https://www.zhihu.com/question/21935157">如何看到CSS中的BEM模式？</a><br><br>
+				<a href="https://www.zhihu.com/question/28207685">Web 前后端分离的意义大吗？</a><br>
+
+			</div>
+		</aside>
+
+		<aside class="related-live">
+			<header>
+				<h4>私家课 · Live 推荐</h4>
+			</header>
+			<div class="related-live__detail-container" onclick="javascrtpt:window.location.href='https://www.zhihu.com/remix/albums/893119664375361536'">
+				<img src="assets/images/l1.jpg">
+				<h4>人人都能听懂的艺术课</h4>
+				<h5>陈嘉健</h5>
+				<p>共13节课</p>
+			</div>
+			<div class="related-live__detail-container" onclick="javascrtpt:window.location.href='https://www.zhihu.com/lives/specials/896453733771280384'">
+				<img src="assets/images/l2.jpg">
+				<h4>前端的高级技巧</h4>
+				<h5>王青</h5>
+				<p>共12节课</p>
+			</div>
+			<div class="bottom related-live__detail-container" onclick="javascrtpt:window.location.href='https://www.zhihu.com/lives/777823741353676800'">
+				<img src="assets/images/l3.jpg">
+				<h4>艺术就是这么简单</h4>
+				<h5>胡婷婷</h5>
+				<p>共3节课</p>
+			</div>
+		</aside>
+
+		<aside class="other-info">
+			<a href="https://liukanshan.zhihu.com/">刘看山</a><p> · </p><a href="https://www.zhihu.com/question/19581624">知乎指南</a><p> · </p><a href="https://www.zhihu.com/terms">知乎协议</a><p> · </p><a href="https://www.zhihu.com/app">应用</a><p> · </p><a href="https://www.zhihu.com/careers">工作</a><br>
+			<a href="https://zhuanlan.zhihu.com/p/28561671">侵权举报</a><p> · </p><a href="http://www.12377.cn/">网上有害信息举报专区</a><br>
+			<p>违法和不良信息举报：010-82716601</p><br>
+			<a href="https://www.zhihu.com/jubao">儿童色情专区信息举报专区</a><br>
+			<a href="https://www.zhihu.com/contact">联系我们 </a><p>© 2017 知乎</p>
+		</aside>
+	</div>
+	<button class="back-to-top" onclick="backToTop()">⬆︎</button>
+	<script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="scripts/script.js"></script>
+</body>
+</html>

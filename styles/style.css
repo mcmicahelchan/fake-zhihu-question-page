@@ -1,0 +1,713 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:	简陋版知乎问题页面
+Version:	1.0
+Last change:	10/13/2017
+Author:	Michael Chan
+
+[Order of Properties]
+- Position
+    - position
+    - z-index
+    - top -> right -> bottom -> left
+- Display & Box Model
+    - display
+    - overflow
+    - box-sizing
+    - outline
+    - width
+    - height
+    - padding-
+    - border-
+    - margin-
+    - box-shadow
+- Color
+    - background-color
+    - color
+    - opacity
+- Text
+    - font-
+    - line-
+    - text-
+- Other
+    - transition
+    - cursor
+
+-------------------------------------------------------------------*/
+
+/*辅助线*/
+/*nav, header, div, output, footer, aside
+{
+	border: solid 1px red;
+}*/
+
+/*大布局以及清理*/
+html, body
+{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	font-family: sans-serif;
+	background-color: #f3f3f3;
+}
+
+input:focus, button:focus
+{
+	outline: none;
+}
+
+.nav-bar
+{
+	position: fixed;
+	z-index: 1;
+	overflow: hidden;
+	width: 100%;
+	height: 52px;
+	border-bottom: solid 2px #dadde0;
+	background-color: #ffffff;
+
+}
+
+.title-bar
+{
+	overflow: hidden;
+	width: 100%;
+	height: 218px;
+	background-color: #ffffff;
+	margin-bottom: 10px;
+}
+
+.grid-container
+{
+	display: grid;
+	grid-template-columns: 695px 295px;
+	grid-template-rows: 74px 332px 326px auto;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 40px;
+}
+
+.main-column
+{
+	overflow: hidden;
+	grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    background-color: #ffffff;
+}
+
+.code
+{
+	position: relative;
+	overflow: hidden;
+	grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-color: #ffffff;
+}
+
+.related-question
+{
+	overflow: hidden;
+	grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: #ffffff;
+}
+
+.related-live
+{
+	overflow: hidden;
+	grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background-color: #ffffff;
+}
+
+.other-info
+{
+	overflow: hidden;
+	grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+/*框内布局*/
+.nav-bar__container
+{
+	position: relative;
+	height: 100%;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.nav-bar__logo
+{
+	position: absolute;
+	width: 65px;
+	height: 32px;
+	top: 10px;
+	left: 0px;
+}
+
+.nav-bar__link-container
+{
+	position: absolute;
+	height: 20px;
+	top: 16px;
+	left: 91px;
+	line-height: 20px;
+}
+
+.nav-bar__link
+{
+	padding-right: 32px;
+	color: #8690a6;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.nav-bar__search-box-container
+{
+	position: absolute;
+	width: 390px;
+	top: 8px;
+	left: 275px;
+}
+
+.nav-bar__search-box--normal
+{
+	position: absolute;
+	height: 32px;
+	width: 286px;
+	padding-left: 20px;
+	padding-right: : 20px;
+	border: solid 1px #e7eaf1;
+	border-radius: 4px;
+	top: 0px;
+	left: 0px;
+	font-size: 14px;
+	background-color: #f7f8fa;
+	transition: all 0.2s;
+}
+
+.nav-bar__search-box-btd--normal
+{
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	border: none;
+	padding: 0px;
+	top: 6px;
+	left: 272px;
+	background: url('../assets/images/searchNormal.png') center no-repeat;
+	background-size: 25px;
+	transition: all 0.2s;
+	cursor: pointer;
+}
+
+.nav-bar__login-btd
+{
+	position: absolute;
+	height: 34px;
+	width: 60px;
+	border: solid 1px #1089eb;
+	border-radius: 4px;
+	top: 10px;
+	right: 105px;
+	font-size: 14px;
+	background-color: white;
+	color: #1089eb;
+}
+
+.nav-bar__register-btd
+{
+	position: absolute;
+	height: 34px;
+	width: 90px;
+	border: solid 1px #1089eb;
+	border-radius: 4px;
+	top: 10px;
+	right: 0px;
+	font-size: 14px;
+	background-color: #1089eb;
+	color: white;
+}
+
+.title-bar-contianer
+{
+	position: relative;
+	height: 100%;
+	width: 1000px;
+	margin: auto;
+}
+
+.title-bar-_classification1
+{
+	position: absolute;
+	display: block;
+	height: 30px;
+	width: 80px;
+	padding: 0px;
+	border: none;
+	border-radius: 16px;
+	top: 74px;
+	left: 0px;
+	font-size: 14px;
+	line-height: 18px;
+	background-color: #eef4fa;
+	color: #3e7ac2;
+}
+.title-bar-_classification2
+{
+	position: absolute;
+	display: block;
+	height: 30px;
+	width: 52px;
+	padding: 0px;
+	border: none;
+	border-radius: 16px;
+	top: 74px;
+	left: 85px;
+	font-size: 14px;
+	background-color: #eef4fa;
+	color: #3e7ac2;
+}
+
+.title-bar-_main-title
+{
+	position: absolute;
+	display: block;
+	top: 126px;
+	left: 0px;
+	margin: 0px;
+	font-size: 22px;
+}
+
+.title-bar__info-container
+{
+	position: absolute;
+	left: 0px;
+	bottom: 22px;
+	height: 20px;
+	width: 50%;
+}
+
+.title-bar__info-container p
+{
+	display: inline;
+	padding-right: 28px;
+	font-size: 14px;
+	color: #9fadc7;
+}
+
+.title-bar-_follow-btd
+{
+	position: absolute;
+	height: 34px;
+	width: 90px;
+	border: solid 1px #1089eb;
+	border-radius: 4px;
+	bottom: 16px;
+	right: 136px;
+	font-size: 14px;
+	background-color: #1089eb;
+	color: white;
+}
+
+.title-bar-_post-btd
+{
+	position: absolute;
+	height: 34px;
+	width: 90px;
+	border: solid 1px #1089eb;
+	border-radius: 4px;
+	bottom: 16px;
+	right: 20px;
+	font-size: 14px;
+	background-color: white;
+	color: #1089eb;
+}
+
+.answer-info
+{
+	position: relative;
+	height: 52px;
+	width: 656px;
+	border-bottom: solid 1px #dadde0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.answer-info h4
+{
+	position: absolute;
+	top: 15px;
+	left: 0px;
+	margin: 0px;
+}
+
+.answer-info p
+{
+	position: absolute;
+	top: 15px;
+	right: 0px;
+	margin: 0px;
+	font-size: 14px;
+}
+
+.single-post
+{
+	height: auto;
+	width: 656px;
+	border-bottom: solid 1px #dadde0;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.single-post__author-profile
+{
+	position: relative;
+	height: 70px;
+	width: 656px;
+	margin-top: 12px;
+}
+
+.single-post__author-profile img
+{
+	width: 42px;
+	height: 42px;
+}
+
+.single-post__author-profile h4
+{
+	position: absolute;
+	display: block;
+	width: 100px;
+	margin: 0px;
+	top: 0px;
+	left: 52px;
+	font-weight: bold;
+	color: #555555;
+
+}
+
+.single-post__author-profile h5
+{
+	position: absolute;
+	display: block;
+	width: 300px;
+	margin: 0px;
+	top: 22px;
+	left: 52px;
+	color: #555555;
+
+}
+
+.single-post__author-profile p
+{
+	position: absolute;
+	width: 300px;
+	margin: 0px;
+	left: 0px;
+	bottom: 0px;
+	font-size: 14px;
+	color: #8690a6;
+}
+
+.single-post__body
+{
+	font-size: 15px;
+	line-height: 160%;
+}
+
+.single-post__footer
+{
+	position: relative;
+	height: 36px;
+	width: 400px;
+	margin-bottom: 18px;
+}
+.single-post__footer__operation
+{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	height: 36px;
+	width: 290px;
+}
+.single-post__footer__like-btd
+{
+	height: 34px;
+	width: 58px;
+	border: none;
+	color: #2d84cc;
+	background-color: #ebf3fb;
+}
+
+.single-post__footer__dislike-btd
+{
+	height: 34px;
+	width: 29px;
+	border:none;
+	color: #2d84cc;
+	background-color: #ebf3fb;
+}
+
+.single-post__footer__operation p
+{
+	
+	display: inline;
+	padding-right: 20px;
+	font-size: 14px;
+	line-height: 36px;
+	color: #8892a8;
+}
+
+.code img
+{
+	height: 51px;
+	width: 51px;
+	padding: 11px;
+}
+
+.code h4
+{
+	position: absolute;
+	display: block;
+	width: 198px;
+	top: 11px;
+	left: 73px;
+	margin: 0px;
+
+}
+
+.code h5
+{
+	position: absolute;
+	display: block;
+	width: 198px;
+	top: 40px;
+	left: 73px;
+	margin: 0px;
+	font-weight: normal;
+
+}
+
+.related-question header
+{
+	height: 48px;
+	border-bottom: solid 1px #dadde0;
+	font-size: 16px;
+	line-height: 48px;
+}
+
+.related-question header h4
+{
+	padding-left: 16px;
+	margin: 0px;
+}
+
+.related-question-container
+{
+	width: 256px;
+	margin: 16px;
+} 
+
+.related-question-container a
+{
+	font-size: 14px;
+	text-decoration: none;
+	color: #17519a;
+}
+
+.related-live header
+{
+	height: 48px;
+	border-bottom: solid 1px #dadde0;
+	font-size: 16px;
+	line-height: 48px;
+}
+
+.related-live header h4
+{
+	padding-left: 16px;
+	margin: 0px;
+}
+
+.related-live__detail-container
+{
+	position: relative;
+	height: 80px;
+	width: 262px;
+	border-bottom: solid 1px #dadde0;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.related-live__detail-container img
+{
+	height: 64px;
+	width: 80px;
+	border-radius: 2px;
+}
+
+.related-live__detail-container h4
+{
+	position: absolute;
+	display: block;
+	top: 0px;
+	left: 90px;
+	margin: 0px;
+	font-size: 14px;
+}
+
+.related-live__detail-container h5
+{
+	position: absolute;
+	display: block;
+	top: 25px;
+	left: 90px;
+	margin: 0px;
+	font-size: 14px;
+	font-weight: normal;
+	color: #646464;
+}
+
+.related-live__detail-container p
+{
+	position: absolute;
+	display: block;
+	top: 50px;
+	left: 90px;
+	margin: 0px;
+	font-size: 14px;
+	font-weight: normal;
+	color: #8690a6;
+}
+
+.other-info a, .other-info p
+{
+	display: inline;
+	text-decoration: none;
+	font-size: 13px;
+	line-height: 200%;
+	color: #808080;
+}
+
+.bottom
+{
+	border-bottom: none;
+}
+
+/*动态*/
+.nav-bar__search-box--normal:active, .nav-bar__search-box--normal:focus, .nav-bar__search-box--normal:visited
+{
+	width: 390px;
+	border-color: #9fadc7;
+	background-color: #ffffff;
+}
+
+.nav-bar__search-box--focus
+{
+	width: 390px;
+	border-color: #9fadc7;
+	background-color: #ffffff;
+}
+
+.nav-bar__search-box-btd--focus
+{
+	left: 376px;
+	background: url('../assets/images/searchActive.png') center no-repeat;
+	background-size: 25px;
+}
+
+.nav-bar__link:hover
+{
+	color: #005493;
+}
+
+.nav-bar__login-btd:hover
+{
+	background-color: #f0f8ff;
+	cursor:pointer
+}
+
+.nav-bar__register-btd:hover
+{
+	background-color: #0d72c3;
+	cursor:pointer
+}
+
+.title-bar-_follow-btd:hover
+{
+	background-color: #0d72c3;
+	cursor:pointer
+}
+
+.title-bar-_post-btd:hover
+{
+	background-color: #f0f8ff;
+	cursor:pointer
+}
+
+.title-bar-_classification1:hover, .title-bar-_classification2:hover
+{
+	text-decoration: underline;
+	cursor:pointer
+}
+
+.related-question-container a:hover
+{
+	text-decoration: underline;
+	cursor:pointer
+}
+
+.related-live__detail-container
+{
+	cursor: pointer;
+} 
+
+.related-live__detail-container:hover h4
+{
+	color: #005493;
+}
+
+.other-info a:hover
+{
+	color: #005493;
+}
+
+/*回到顶部*/
+.back-to-top
+{
+	position: fixed;
+	width: 40px;
+	height: 40px;
+	right: 15px;
+	bottom: 15px;
+	border: none;
+	border-radius: 4px;
+	font-size: 20px;
+	color: #9aaabf;
+	background-color: #ffffff; 
+}
+.back-to-top:hover
+{
+	background-color: #cedbe6;
+	cursor: pointer;
+
+}
